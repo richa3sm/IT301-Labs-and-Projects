@@ -1,0 +1,50 @@
+*{
+    padding:10px;
+    margin:0;
+}
+
+
+section{
+  margin: 20px 0;
+}
+
+ul{
+  padding-left: 40px;
+}
+
+ul ul ul {
+  margin-top: 10px;
+}
+
+/* Add style here */
+
+li:nth-child(1){
+  color:royalblue;
+}
+
+li:nth-child(2){
+  color:forestgreen;
+}
+
+li:nth-child(3){
+  color:crimson;
+}
+
+ul ul li:nth-child(1){
+  color:violet;
+  background-color: lightgray;
+}
+
+ul ul ul li:nth-child(1){
+  color:darkorange;
+  background-color: beige;
+}
+
+ul ul li:nth-of-type(2){
+  color:violet;
+  background-color: lightgray;
+}
+
+li:nth-of-type(4){
+  color:royalblue
+}
