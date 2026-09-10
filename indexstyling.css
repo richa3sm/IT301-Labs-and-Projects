@@ -3,16 +3,6 @@
     margin:0;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
-
-h1, h2, h3 {
-    font-family: "Oswald", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 800;
-    font-style: normal;
-    font-size: 2rem;
-}
-
 body {
     background-color: #dce6f1;
     color: #243447;
