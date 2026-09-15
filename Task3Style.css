@@ -1,0 +1,32 @@
+body {
+    font-family: sans-serif;
+}
+
+h2 {
+    color: gray;
+    font-style: italic;
+}
+
+.node {
+    color: red;
+    text-decoration: underline;
+}
+
+pre {
+    background-color: lightgray;
+    border: 4px double gray;
+    border-radius: 4px;
+    width: 260px;
+    padding: 20px 20px;
+    color: darkblue;
+    font-weight: bold;
+}
+
+.strikethrough {
+    text-decoration: line-through;
+}
+
+footer {
+    font-style: italic;
+    font-size: 0.8em;
+}
