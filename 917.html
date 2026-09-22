@@ -5,48 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flex Box Practice</title>
 
-<style>
-    *{margin: 0;}
+    <style>
+        #flex_parent{
+            border: solid 1px;
+            display: flex;
+            align-items: flex-end;
+            height: 100px;
+        }
+        div div {
+            background-color: aquamarine;
+            border: 1px solid;
+            width: 100px;
+            height: 100px;
+        }
+        #child2{
+            flex-grow: 1;
+        }
+        #child1{
+            flex-grow: 3;
+        }
 
-    #flex_parent {
-        width: 50vw;
-        border: 1px solid;
-        display: flex;
-        justify-content: space-around;
-        align-items: flex-end;
-        flex-wrap: wrap;
-    }
-
-    div div {
-        width: 100px;
-        background-color: antiquewhite;
-        border: 1px solid;
-        box-sizing: border-box;
-    }
-    #child1{
-        min-height: 50px;
-    }
-    #child2{
-        min-height: 150px;
-    }
-    #child3{
-        min-height: 200px;
-    }
-
-</style>
+    </style>
 </head>
 <body>
     <div id = "flex_parent">
         <div id = "child1">
-            Child 1
+            1
         </div>
 
         <div id = "child2">
-            Child 2
+            2
         </div>
 
         <div id = "child3">
-            Child 3
+            3
         </div>
     </div>
 </body>
