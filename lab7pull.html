@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 7</title>
+
+    <style>
+        body{
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #flex_parent{
+            display: flex;
+            height: 100vh;
+        }
+
+        #left_panel{
+            background-color: orange;
+            width: 120px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 40px;
+            gap: 25px;
+            padding-top: 20px;
+            flex-shrink: 0;
+        }
+
+        #right_panel{
+            flex-grow: 1;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        #photo_parent{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .photo{
+            height: 100px;
+            flex-grow: 1;
+            border: 2px solid white;
+        }
+
+        img{
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="flex_parent">
+        <div id="left_panel">
+            <div>&#x1F4F7;</div>
+            <div>&#x1F5C4;&#xfe0f;</div>
+            <div>&#x2764;&#xfe0f;</div>
+            <br><br><br><br><br><br><br><br><br>
+            <div>&#x1F5D1;&#xfe0f;</div>
+        </div>
+        <div id="right_panel">
+            <div id="photo_parent">
+                <div class="photo" style="flex-basis: 175px;">
+                    <img src="https://picsum.photos/175/100?random=1">
+                </div>
+                <div class="photo" style="flex-basis: 230px;">
+                    <img src="https://picsum.photos/230/100?random=2">
+                </div>
+                <div class="photo" style="flex-basis: 310px;">
+                    <img src="https://picsum.photos/310/100?random=3">
+                </div>
+                <div class="photo" style="flex-basis: 145px;">
+                    <img src="https://picsum.photos/145/100?random=4">
+                </div>
+                <div class="photo" style="flex-basis: 265px;">
+                    <img src="https://picsum.photos/265/100?random=5">
+                </div>
+                <div class="photo" style="flex-basis: 190px;">
+                    <img src="https://picsum.photos/190/100?random=6">
+                </div>
+                <div class="photo" style="flex-basis: 350px;">
+                    <img src="https://picsum.photos/350/100?random=7">
+                </div>
+                <div class="photo" style="flex-basis: 120px;">
+                    <img src="https://picsum.photos/120/100?random=8">
+                </div>
+                <div class="photo" style="flex-basis: 280px;">
+                    <img src="https://picsum.photos/280/100?random=9">
+                </div>
+                <div class="photo" style="flex-basis: 215px;">
+                    <img src="https://picsum.photos/215/100?random=10">
+                </div>
+                <div class="photo" style="flex-basis: 330px;">
+                    <img src="https://picsum.photos/330/100?random=11">
+                </div>
+                <div class="photo" style="flex-basis: 155px;">
+                    <img src="https://picsum.photos/155/100?random=12">
+                </div>
+                <div class="photo" style="flex-basis: 245px;">
+                    <img src="https://picsum.photos/245/100?random=13">
+                </div>
+                <div class="photo" style="flex-basis: 390px;">
+                    <img src="https://picsum.photos/390/100?random=14">
+                </div>
+                <div class="photo" style="flex-basis: 135px;">
+                    <img src="https://picsum.photos/135/100?random=15">
+                </div>
+                <div class="photo" style="flex-basis: 300px;">
+                    <img src="https://picsum.photos/300/100?random=16">
+                </div>
+                <div class="photo" style="flex-basis: 185px;">
+                    <img src="https://picsum.photos/185/100?random=17">
+                </div>
+                <div class="photo" style="flex-basis: 360px;">
+                    <img src="https://picsum.photos/360/100?random=18">
+                </div>
+                <div class="photo" style="flex-basis: 205px;">
+                    <img src="https://picsum.photos/205/100?random=19">
+                </div>
+                <div class="photo" style="flex-basis: 270px;">
+                    <img src="https://picsum.photos/270/100?random=20">
+                </div>
+                <div class="photo" style="flex-basis: 160px;">
+                    <img src="https://picsum.photos/160/100?random=21">
+                </div>
+                <div class="photo" style="flex-basis: 325px;">
+                    <img src="https://picsum.photos/325/100?random=22">
+                </div>
+                <div class="photo" style="flex-basis: 225px;">
+                    <img src="https://picsum.photos/225/100?random=23">
+                </div>
+                <div class="photo" style="flex-basis: 375px;">
+                    <img src="https://picsum.photos/375/100?random=24">
+                </div>
+                <div class="photo" style="flex-basis: 120px;">
+                    <img src="https://picsum.photos/375/100?random=25">
+                </div>
+                <div class="photo" style="flex-basis: 245px;">
+                    <img src="https://picsum.photos/375/100?random=26">
+                </div>
+                <div class="photo" style="flex-basis: 275px;">
+                    <img src="https://picsum.photos/375/100?random=27">
+                </div>
+                <div class="photo" style="flex-basis: 200px;">
+                    <img src="https://picsum.photos/375/100?random=28">
+                </div>
+                <div class="photo" style="flex-basis: 150px;">
+                    <img src="https://picsum.photos/375/100?random=29">
+                </div>
+                <div class="photo" style="flex-basis: 185px;">
+                    <img src="https://picsum.photos/375/100?random=30">
+                </div>
+                <div class="photo" style="flex-basis: 215px;">
+                    <img src="https://picsum.photos/375/100?random=31">
+                </div>
+                <div class="photo" style="flex-basis: 140px;">
+                    <img src="https://picsum.photos/375/100?random=32">
+                </div>
+                <div class="photo" style="flex-basis: 320px;">
+                    <img src="https://picsum.photos/375/100?random=33">
+                </div>
+                <div class="photo" style="flex-basis: 370px;">
+                    <img src="https://picsum.photos/375/100?random=34">
+                </div>
+                <div class="photo" style="flex-basis: 315px;">
+                    <img src="https://picsum.photos/375/100?random=35">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
