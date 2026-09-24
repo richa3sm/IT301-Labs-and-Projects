@@ -4,42 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flex Box Practice</title>
-
     <style>
-        #flex_parent{
-            border: solid 1px;
-            display: flex;
-            align-items: flex-end;
-            height: 100px;
+        body{
+            height: 200vh;
         }
-        div div {
-            background-color: aquamarine;
-            border: 1px solid;
-            width: 100px;
-            height: 100px;
-        }
-        #child2{
-            flex-grow: 1;
-        }
-        #child1{
-            flex-grow: 3;
-        }
+        .parent{
+            position: relative;
 
+            background-color: antiquewhite;
+            border: 2px solid;
+            padding: 3px;
+        }
+        .child1{
+            background-color: aquamarine;
+        }
+        .child2{
+            position: sticky;
+
+            background-color: burlywood;
+        }
+        .child3{
+            background-color: blueviolet;
+        }
     </style>
 </head>
-<body>
-    <div id = "flex_parent">
-        <div id = "child1">
-            1
+    <body>
+        <div class="parent">
+        Parent
+            <div class = "child1">First</div>
+            <div class = "child2">Second</div>
+            <div class = "child3">Third</div>
         </div>
-
-        <div id = "child2">
-            2
-        </div>
-
-        <div id = "child3">
-            3
-        </div>
-    </div>
-</body>
+    </body>
 </html>
