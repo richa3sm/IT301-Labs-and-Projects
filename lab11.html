@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 11: Mouse Events</title>
+
+    <style>
+        #box{
+            background-color: blue;
+            color: white;
+            font-size: 1.2em;
+            width: 200px;
+            padding: 10px;
+            text-align: center;
+            display: block;
+            margin: auto;
+        }
+
+        #box:hover{
+            cursor: pointer;
+        }
+
+        #mouseArea {
+            height: 75vh;
+            margin-top: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id = "box"> Click Me! 😊</div>
+    <div id = "mouseArea"></div>
+    <script>
+        const box = document.getElementById('box');
+        const mouseArea = document.getElementById('mouseArea');
+
+        function clickFunction(event) {
+            box.innerText = "Ouch! 🤕";
+            box.style.backgroundColor = "red";
+        }
+
+        function mouseOverFunction(event) {
+            box.innerText = "Do not click! 😠";
+            box.style.backgroundColor = "yellow";
+        }
+
+        function mouseLeaveFunction(event) {
+            box.innerText = "Phew! 😌";
+            box.style.backgroundColor = "lightgreen";
+        }
+
+        function doubleClickFunction(event) {
+            box.innerText = "Double trouble! 🤩";
+            box.style.backgroundColor = "pink";
+        }
+
+        function mouseMoveFunction(event) {
+            box.innerText = "I see you! 👀";
+            box.style.backgroundColor = "lightblue";
+        }
+
+        box.addEventListener('click', clickFunction);
+        box.addEventListener('mouseover', mouseOverFunction);
+        box.addEventListener('mouseleave', mouseLeaveFunction);
+        box.addEventListener('dblclick', doubleClickFunction);
+        mouseArea.addEventListener('mousemove', mouseMoveFunction);
+    </script>
+</body>
+</html>
