@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 12: Greetings and Calculator</title>
+</head>
+<body>
+    <form action="#">
+        <label for="name">What is your name? </label>
+        <input type="text" id="name"> <br><br>
+        <button id="bttn" type="button">Submit</button><br>
+    </form>
+
+    <p id="greeting"></p>
+    <br><br>
+
+    <form action="#">
+        <label for="num1">Enter number 1</label>
+        <input type="number" id="num1"> <br><br>
+
+        <label for="num2">Enter number 2</label>
+        <input type="number" id="num2"> <br><br>
+    </form>
+
+    <p>Select your operand:</p>
+    <form action="#">
+        <input type="radio" name="operand" value="addition">Addition (+)<br>
+        <input type="radio" name="operand" value="subtraction">Subtraction (-)<br>
+        <input type="radio" name="operand" value="multiplication">Multiplication (x)<br>
+        <input type="radio" name="operand" value="division">Division (/)<br><br>
+
+        <button id="select" type="button">Select</button>
+        <button id="clear" type="button">Clear</button>
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+        const greet = function(name) {
+            document.getElementById("greeting").textContent = `Welcome ${name}`;
+        };
+
+        document.getElementById("bttn").addEventListener("click", function() {
+            let name = document.getElementById("name").value;
+
+            if (name.trim() === "") {
+                document.getElementById("greeting").textContent = "Please enter your name.";
+            }
+            else {
+                greet(name);
+            }
+        });
+
+        const num1 = document.getElementById("num1");
+        const num2 = document.getElementById("num2");
+        const result = document.getElementById("result");
+
+        const add = (a, b) => a + b;
+        const sub = (a, b) => a - b;
+        const mult = (a, b) => a * b;
+        const div = (a, b) => a / b;
+
+        document.getElementById("select").addEventListener("click", function() {
+            const operation = document.querySelector('[name=operand]:checked');
+
+            if (num1.value === "" || num2.value === "") {
+                result.textContent = "Please enter both numbers.";
+                return;
+            }
+
+            if (operation === null) {
+                result.textContent = "Please select an operation.";
+                return;
+            }
+
+            const a = Number(num1.value);
+            const b = Number(num2.value);
+
+            if (operation.value === "addition") {
+                result.textContent = add(a, b);
+            }
+            else if (operation.value === "subtraction") {
+                result.textContent = sub(a, b);
+            }
+            else if (operation.value === "multiplication") {
+                result.textContent = mult(a, b);
+            }
+            else if (operation.value === "division") {
+                result.textContent = div(a, b);
+            }
+        });
+
+        document.getElementById("clear").addEventListener("click", function() {
+            document.getElementById("name").value = "";
+            num1.value = "";
+            num2.value = "";
+            document.getElementById("greeting").textContent = "";
+            result.textContent = "";
+
+            const operation = document.querySelector('[name=operand]:checked');
+
+            if (operation !== null) {
+                operation.checked = false;
+            }
+        });
+    </script>
+</body>
+</html>
