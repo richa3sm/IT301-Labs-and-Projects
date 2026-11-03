@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+
+    <style>
+        body {
+            background-color: #f0f2f5;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        form {
+            min-height: 180px;
+        }
+
+        article,
+        form {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h2 {
+            color: #050505;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin: 0 0 4px 0;
+        }
+
+        p {
+            color: #050505;
+            font-size: 0.9375rem;
+            line-height: 1.3333;
+            margin: 8px 0 0 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1> Welcome to my Posts page! </h1>
+
+    <form action="#">
+
+        <label for="userID">Select User:</label>
+        <select id="userID">
+            <option value="">--Please choose an option--</option>
+            <option value="1">User 1</option>
+            <option value="2">User 2</option>
+            <option value="3">User 3</option>
+            <option value="4">User 4</option>
+            <option value="5">User 5</option>
+            <option value="6">User 6</option>
+            <option value="7">User 7</option>
+        </select>
+
+        <button type="button" id="filterBtn">Filter</button>
+
+        <br><br>
+
+        <label for="displayUserID">Enter User ID:</label>
+        <input type="number" id="displayUserID" min="1" max="10">
+
+        <button type="button" id="displayUserBtn">Display User Posts</button>
+
+        <br><br>
+
+        <label for="postID">Enter Post ID:</label>
+        <input type="number" id="postID" min="1" max="100">
+
+        <button type="button" id="findBtn">Find</button>
+
+    </form>
+
+    <script>
+        let postsArray = [];
+        const site = 'https://jsonplaceholder.typicode.com/posts';
+
+        const getPosts = async () => {
+            try {
+                let result = await fetch(site);
+                postsArray = await result.json();
+                console.table(postsArray);
+                displayPosts(postsArray);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        const displayPosts = (posts) => {
+            posts.forEach(post => {
+                let article = document.createElement('article');
+                let title = document.createElement('h2');
+                let body = document.createElement('p');
+                let userID = document.createElement('p');
+                let postID = document.createElement('p');
+
+                title.textContent = post.title;
+                body.textContent = post.body;
+                userID.textContent = 'User ID: ' + post.userId;
+                postID.textContent = 'Post ID: ' + post.id;
+
+                article.appendChild(title);
+                article.appendChild(body);
+                article.appendChild(userID);
+                article.appendChild(postID);
+
+                document.body.appendChild(article);
+            });
+        }
+
+        let userSelect = document.getElementById('userID');
+        let filterBtn = document.getElementById('filterBtn');
+
+        filterBtn.addEventListener('click', () => {
+            let selectedUser = userSelect.value;
+            let filteredPosts = postsArray.filter(post => post.userId == selectedUser);
+            console.table(filteredPosts);
+        });
+
+        let displayUserID = document.getElementById('displayUserID');
+        let displayUserBtn = document.getElementById('displayUserBtn');
+
+        displayUserBtn.addEventListener('click', () => {
+            let selectedUser = displayUserID.value;
+
+            document.querySelectorAll('article').forEach((article) => {
+                article.remove();
+            });
+
+            let filteredPosts = postsArray.filter(post => post.userId == selectedUser);
+            displayPosts(filteredPosts);
+        });
+
+        let postIDInput = document.getElementById('postID');
+        let findBtn = document.getElementById('findBtn');
+
+        findBtn.addEventListener('click', () => {
+            let selectedPost = postIDInput.value;
+
+            document.querySelectorAll('article').forEach((article) => {
+                article.remove();
+            });
+
+            let foundPost = postsArray.filter(post => post.id == selectedPost);
+
+            if (foundPost.length > 0) {
+                displayPosts(foundPost);
+            } else {
+                alert('Post not found!');
+            }
+        });
+
+        getPosts();
+    </script>
+
+</body>
+
+</html>
