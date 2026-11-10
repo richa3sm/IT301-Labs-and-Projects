@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 16: Form</title>
+    <style>
+        .valid { color: green; }
+        .invalid { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Registration Form</h1>
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+        <br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+        <br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter your password" required>
+
+        <div id="passwordRules" hidden>
+            <p id="lengthRule">At least 6 characters</p>
+            <p id="specialRule">Must include a special character (!@#$...)</p>
+            <p id="uppercaseRule">Must include an uppercase letter (A-Z)</p>
+        </div>
+
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        const password = document.getElementById('password');
+        const passwordRules = document.getElementById('passwordRules');
+        const lengthRule = document.getElementById('lengthRule');
+        const specialRule = document.getElementById('specialRule');
+        const uppercaseRule = document.getElementById('uppercaseRule');
+
+        document.getElementById('myForm').addEventListener('submit', (event) => {
+            event.preventDefault();
+            window.location.href = "success.html";
+        });
+
+        password.addEventListener('input', () => {
+            const value = password.value;
+
+            passwordRules.hidden = value.length === 0;
+
+            const hasLength = value.length >= 6;
+            const hasSpecial = /[!@#$%^&*(),.?":{}|<>_]/.test(value);
+            const hasUppercase = /[A-Z]/.test(value);
+
+            lengthRule.classList.toggle('valid', hasLength);
+            lengthRule.classList.toggle('invalid', !hasLength);
+
+            specialRule.classList.toggle('valid', hasSpecial);
+            specialRule.classList.toggle('invalid', !hasSpecial);
+
+            uppercaseRule.classList.toggle('valid', hasUppercase);
+            uppercaseRule.classList.toggle('invalid', !hasUppercase);
+        });
+    </script>
+</body>
+</html>
